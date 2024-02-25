@@ -1,28 +1,28 @@
-# Programa 2: Ordenación de Arreglo Multidimensional
+# Programa 1: Búsqueda en Arreglo Multidimensional
 
 # Definir la matriz bidimensional
 matriz = [
-    [9, 8, 7],
-    [6, 5, 4],
-    [3, 2, 1]
+    [6, 2, 8],
+    [4, 7, 1],
+    [5, 3, 9]
 ]
 
-# Implementar función de ordenación de una fila específica (usando Bubble Sort)
-def ordenar_fila(matriz, fila):
-    matriz[fila] = sorted(matriz[fila])
+# Implementar función de búsqueda
+def buscar_valor(matriz, valor):
+    for i in range(len(matriz)):
+        for j in range(len(matriz[0])):
+            if matriz[i][j] == valor:
+                return True, i, j
+    return False, None, None
 
-# Mostrar matriz original
-print("Matriz original:")
-for fila in matriz:
-    print(fila)
+# Valor a buscar
+valor_a_buscar = 5
 
-# Seleccionar la fila a ordenar (por ejemplo, la primera fila)
-fila_a_ordenar = 0
+# Realizar búsqueda
+encontrado, fila, columna = buscar_valor(matriz, valor_a_buscar)
 
-# Ordenar la fila seleccionada
-ordenar_fila(matriz, fila_a_ordenar)
-
-# Mostrar matriz con fila ordenada
-print("\nMatriz con la fila ordenada:")
-for fila in matriz:
-    print(fila)
+# Mostrar resultados
+if encontrado:
+    print(f"El valor {valor_a_buscar} se encontró en la fila {fila + 1}, columna {columna + 1}.")
+else:
+    print(f"El valor {valor_a_buscar} no se encontró en la matriz.")
